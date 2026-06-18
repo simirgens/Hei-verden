@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hei verden</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;1,300&family=Inter:wght@400;500&display=swap');
+
+    :root {
+      --bg:       #0d1117;
+      --surface:  #161b22;
+      --accent:   #58e89c;
+      --muted:    #8b949e;
+      --text:     #e6edf3;
+      --border:   #30363d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3.5rem 4rem;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Signature element: glowing arc behind the heading */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 340px;
+      height: 200px;
+      background: radial-gradient(ellipse at center, rgba(88,232,156,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1.75rem auto;
+      border-radius: 2px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 38ch;
+      margin: 0 auto;
+    }
+
+    .meta {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .meta span {
+      font-size: 0.8rem;
+      color: var(--border);
+      font-family: 'Inter', monospace;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.3rem 0.75rem;
+    }
+
+    .meta span b {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    @media (max-width: 500px) {
+      .card { padding: 2.5rem 1.75rem; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .card { animation: fadein 0.6s ease both; }
+      @keyframes fadein {
+        from { opacity: 0; transform: translateY(16px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <p class="label">Nettside nr. 1</p>
+    <h1>Hei, <em>verden</em></h1>
+    <div class="divider"></div>
+    <p>En enkel nettside laget med HTML og CSS. Alt starter et sted – og dette er begynnelsen.</p>
+    <div class="meta">
+      <span><b>HTML</b> 5</span>
+      <span><b>CSS</b> 3</span>
+      <span><b>JS</b> 0</span>
+    </div>
+  </main>
+</body>
+</html>
